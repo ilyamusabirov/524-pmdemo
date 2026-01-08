@@ -18,15 +18,21 @@ pip install 524-pmdemo
 ## Quick Start
 
 ```python
-from pmdemo import DataProcessor
+from pmdemo import DataProcessor, DataAnalyzer, DataVisualizer
 
 # Load your data
 processor = DataProcessor()
 data = processor.load_csv("your_data.csv")
 
 # Analyze
-results = processor.analyze(data)
-print(results.summary())
+analyzer = DataAnalyzer()
+stats = analyzer.calculate_stats(data, "value")
+print(f"Mean: {stats['mean']}")
+
+# Visualize
+visualizer = DataVisualizer()
+report = visualizer.generate_report(data, "Data Report")
+print(report)
 ```
 
 ## Documentation
