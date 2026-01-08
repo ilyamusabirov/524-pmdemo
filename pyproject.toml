@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "524-pmdemo"
+version = "0.1.0"
+description = "Python Data Analysis Toolkit"
+readme = "README.md"
+authors = [
+    {name = "524-pmdemo Team"}
+]
+license = {text = "GPL-3.0"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "flake8>=6.0",
+    "black>=23.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ilyamusabirov/524-pmdemo"
+Documentation = "https://github.com/ilyamusabirov/524-pmdemo/tree/main/docs"
+Repository = "https://github.com/ilyamusabirov/524-pmdemo"
+Issues = "https://github.com/ilyamusabirov/524-pmdemo/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pmdemo*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 127
+target-version = ['py38']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
